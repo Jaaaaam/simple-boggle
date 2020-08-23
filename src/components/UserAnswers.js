@@ -67,8 +67,11 @@ const UserAnswers = ({isTimerOn}) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
-    console.log(e.target.value)
-    setInputValue(e.target.value)
+    //allow letters only
+    const regex = /^[A-Za-z]+$/;
+    if (regex.test(e.target.value)) {
+      setInputValue(e.target.value)
+    } 
   }
 
   const submitAnswer = (e) => {
@@ -87,9 +90,7 @@ const UserAnswers = ({isTimerOn}) => {
   }
 
   const calculateScore = () => {
-    console.log(answers.reduce((acc, currentValue) => (acc + currentValue.score), 0), 'TEST')
     return answers.reduce((acc, currentValue) => {
-      console.log(currentValue, 'CHECK VAL')
       return acc + currentValue.score
     }, 0)
   }

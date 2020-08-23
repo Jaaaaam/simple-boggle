@@ -11,11 +11,11 @@ const TimerWrapper = styled.div`
 const Timer = ({isTimerOn, setIsTimerOn}) => {
 
   // initialize secondsLeft with the seconds prop
-  const [secondsLeft, setSecondsLeft] = useState(10);
+  const [secondsLeft, setSecondsLeft] = useState(180);
 
   useEffect(() => {
     if (!isTimerOn) {
-      setSecondsLeft(10)
+      setSecondsLeft(180)
       return;
     };
     console.log(isTimerOn, !isTimerOn, 'OFF DAPAT')
